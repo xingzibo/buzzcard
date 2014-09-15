@@ -84,8 +84,8 @@
 {
     
     
-    PFQuery *query = [PFQuery queryWithClassName:@"ContactRepo"];
-    [query selectKeys:@[@"ContactToBeSent"]];
+    PFQuery *query = [PFQuery queryWithClassName:@"ContactExchange"];
+    [query selectKeys:@[@"contact_sendTo"]];
     NSArray *results = [query findObjects:nil];
     NSLog(@"%@",[results description]);
 

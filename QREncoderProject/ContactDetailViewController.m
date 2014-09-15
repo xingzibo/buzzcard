@@ -409,13 +409,14 @@
 
 -(void) saveContact
 {
-    contact = [PFObject objectWithClassName:@"ContactRepo"];
+    contact = [PFObject objectWithClassName:@"ContactExchange"];
 
     //parse
     {
         
         //contact = [PFObject objectWithClassName:@"ContactRepo"];
-        contact[@"ContactToBeSent"]=contactToAttach;
+        contact[@"contact_data"]=contactToAttach;
+        contact[@"contact_sendTo"]=contactNumber.text;
         [contact saveInBackground ];
     }
     
