@@ -45,29 +45,7 @@
 
 -(void) createQR
 {
-    //NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    //[prefs setObject:@"ContactDetails" forKey:firstName.text];
-
-    
-    /*
-    
-    if(([personDesignation.text isEqualToString:@""] && [firstName.text isEqualToString:@""] && [lastName.text isEqualToString:@""] && [dateOfBirth.text isEqualToString:@""] && [contactNumber.text isEqualToString:@""] && [emailId.text isEqualToString:@""] && [companyName.text isEqualToString:@""] && [webUrl.text isEqualToString:@""] && [streetDetails.text isEqualToString:@""] && [cityName.text isEqualToString:@""] && [countryName.text isEqualToString:@""] && [postCode.text isEqualToString:@""] && [faxNumber.text isEqualToString:@""]))
-    {
-
-        UIAlertView *alertPopUp = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                   
-                                                             message:@"Please complete the form"
-                                   
-                                                            delegate:self cancelButtonTitle:@"OK"
-                                   
-                                                   otherButtonTitles:nil];
         
-        [alertPopUp show];
-        
-            }
-    
-    */
-    
     if(![webUrl.text hasPrefix:@"www."])
     {
         NSString *url = @"www.";
@@ -75,6 +53,11 @@
         webUrl.text = finalUrl;
     }
     
+    /////
+    
+    
+    
+    /////
     
     NSArray *contactArray = [[NSArray alloc] initWithObjects: firstName.text,lastName.text,personDesignation.text,dateOfBirth.text,contactNumber.text,faxNumber.text,emailId.text,companyName.text,webUrl.text,streetDetails.text,cityName.text,countryName.text,postCode.text, nil];
     NSString *finalContact = [contactArray componentsJoinedByString:@"|"];
@@ -99,6 +82,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(image1) forKey:@"MyQR1"];
     
     //[self presentViewController:createQR animated:YES completion:nil];
+    
+    ////
+    NSUserDefaults *prefsCont = [NSUserDefaults standardUserDefaults];
+    
+    // saving an NSString
+    [prefsCont setObject:contactNumber.text forKey:@"MyContactNumber"];
+    
+    /////
     
     MyQRViewController *myQR = [self.storyboard instantiateViewControllerWithIdentifier:@"MyQRView"];
     

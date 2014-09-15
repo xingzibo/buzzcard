@@ -83,31 +83,37 @@
 -(void) recContact
 {
     
+    NSUserDefaults *prefsCont = [NSUserDefaults standardUserDefaults];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"ContactExchange"];
-    [query selectKeys:@[@"contact_sendTo"]];
-    NSArray *results = [query findObjects:nil];
-    NSLog(@"%@",[results description]);
-
-    /*[query getFirstObjectInBackgroundWithBlock :^(PFObject *object, NSError *error) {
+    // getting an NSString
+    NSString *myContactNumber = [prefsCont stringForKey:@"MyContactNumber"];
+    
+   // NSPredicate *pred = [NSPredicate predicateWithFormat:@"contact_sendTo = %@", myContactNumber];
+    
+   // PFQuery *q = [PFQuery queryWithClassName:@"ContactExchange" predicate:pred];
+   // [q findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+    PFQuery *pf = [PFQuery queryWithClassName:@"ContactExchange"];
+    [pf whereKey:@"contact_sendTo" equalTo:myContactNumber];
+    
+     [pf getFirstObjectInBackgroundWithBlock :^(PFObject *object, NSError *error) {
+    //[pf findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        if(object)
+        
+        if(!error)
         {
-        
-        //NSLog(@"the contact is %@",object);
-        
-        recievedContact = object[@"ContactToBeSent"];
-        NSLog(@"the team name is %@",recievedContact);
-        
-        
-        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        
-        // saving an NSString
-        [prefs setObject:recievedContact forKey:@"RecCont"];
+            
+            NSLog(@"the contact is %@",object[@"contact_data"]);
+             [self.timer invalidate];
         }
+        else
+        {
+            NSLog(@"Error: %@",[error userInfo]);
+        }
+    
     }];
-     */
-    [self.timer invalidate];
+    
+   
         
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -121,8 +127,8 @@
     //delete query after recieving the contact
     
     
-    PFQuery *query1= [PFQuery queryWithClassName:@"ContactRepo"];
-    [query1 whereKey:@"ContactToBeSent" equalTo:newContact];
+    PFQuery *query1= [PFQuery queryWithClassName:@"ContactExchange"];
+    [query1 whereKey:@"contact_sendTo" equalTo:myContactNumber];
     [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if(!error)

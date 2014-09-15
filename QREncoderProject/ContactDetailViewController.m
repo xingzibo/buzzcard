@@ -122,6 +122,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     
      // contact = [PFObject objectWithClassName:@"ContactRepo"];
     
@@ -194,9 +195,26 @@
 
     //
     
-    // parse content
+    //sending contact from here
+    
+    contact = [PFObject objectWithClassName:@"ContactExchange"];
+    
+    NSUserDefaults *prefs11 = [NSUserDefaults standardUserDefaults];
+    
+    // getting an NSString
+    NSString *myCont = [prefs11 stringForKey:@"MyContactNumber"];
+    
+    //parse
+    {
+        
+        //contact = [PFObject objectWithClassName:@"ContactRepo"];
+        contact[@"contact_data"]=contactToAttach;
+        contact[@"contact_sendTo"]=myCont;
+        [contact saveInBackground ];
+    }
     
     
+    //
 
     
     
@@ -409,33 +427,25 @@
 
 -(void) saveContact
 {
+    //sending contact from here
+    /*
     contact = [PFObject objectWithClassName:@"ContactExchange"];
+    
+    NSUserDefaults *prefs11 = [NSUserDefaults standardUserDefaults];
+    
+    // getting an NSString
+    NSString *myCont = [prefs11 stringForKey:@"MyContactNumber"];
 
     //parse
     {
         
         //contact = [PFObject objectWithClassName:@"ContactRepo"];
         contact[@"contact_data"]=contactToAttach;
-        contact[@"contact_sendTo"]=contactNumber.text;
+        contact[@"contact_sendTo"]=myCont;
         [contact saveInBackground ];
     }
-    
-    /*
-    //NSLog(@"");
-      //[contact deleteInBackground];
-    
-    //adding delay timer to delete
-    
-    double delayInSeconds = 15.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-       
-        [contact deleteInBackground];
-        
-    });
-     */
-
-
+    */
+    //
     
     
     //fn mod
