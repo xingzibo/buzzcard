@@ -29,9 +29,6 @@
 		3FA05F3419A7D13400B2F780 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05F3119A7D13400B2F780 /* 29.png */; };
 		3FA05F3519A7D13400B2F780 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05F3219A7D13400B2F780 /* 40.png */; };
 		3FA05F3619A7D13400B2F780 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA05F3319A7D13400B2F780 /* 60.png */; };
-		3FA06A8A19B376AA009DE2F5 /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA06A8719B376AA009DE2F5 /* 58x58.png */; };
-		3FA06A8B19B376AA009DE2F5 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA06A8819B376AA009DE2F5 /* 80x80.png */; };
-		3FA06A8C19B376AA009DE2F5 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FA06A8919B376AA009DE2F5 /* 120x120.png */; };
 		3FB2C57219A78275003AD0A3 /* Xcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2C57119A78275003AD0A3 /* Xcode.png */; };
 		3FB2C57419A7833E003AD0A3 /* web.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2C57319A7833E003AD0A3 /* web.png */; };
 		3FB2C57719A783B8003AD0A3 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2C57519A783B8003AD0A3 /* call.png */; };
@@ -111,9 +108,6 @@
 		3FA05F3119A7D13400B2F780 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
 		3FA05F3219A7D13400B2F780 /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
 		3FA05F3319A7D13400B2F780 /* 60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60.png; sourceTree = "<group>"; };
-		3FA06A8719B376AA009DE2F5 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 58x58.png; path = ../../../Downloads/logo/58x58.png; sourceTree = "<group>"; };
-		3FA06A8819B376AA009DE2F5 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 80x80.png; path = ../../../Downloads/logo/80x80.png; sourceTree = "<group>"; };
-		3FA06A8919B376AA009DE2F5 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120x120.png; path = ../../../Downloads/logo/120x120.png; sourceTree = "<group>"; };
 		3FB2C57119A78275003AD0A3 /* Xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Xcode.png; sourceTree = "<group>"; };
 		3FB2C57319A7833E003AD0A3 /* web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web.png; sourceTree = "<group>"; };
 		3FB2C57519A783B8003AD0A3 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
@@ -253,9 +247,6 @@
 				3FDF3FEE19B8D654004D0B74 /* qr.png */,
 				3FDF3FEC19B8D5D6004D0B74 /* about.png */,
 				3FDF3FE819B8C24C004D0B74 /* BUZZ.png */,
-				3FA06A8719B376AA009DE2F5 /* 58x58.png */,
-				3FA06A8819B376AA009DE2F5 /* 80x80.png */,
-				3FA06A8919B376AA009DE2F5 /* 120x120.png */,
 				3FD1D6ED19A8B5B600701510 /* info_48*32.png */,
 				3FD1D6EB19A8B4B900701510 /* info.png */,
 				3FD1D6E919A8A96100701510 /* retina_wood.png */,
@@ -395,17 +386,14 @@
 				3FB2C57419A7833E003AD0A3 /* web.png in Resources */,
 				3FB2C57A19A78461003AD0A3 /* bday.png in Resources */,
 				3FDF3FF519B8E056004D0B74 /* default_person.png in Resources */,
-				3FA06A8A19B376AA009DE2F5 /* 58x58.png in Resources */,
 				3FD0F7B519C5929C008E4DC4 /* Launch Screen.xib in Resources */,
 				651662741504516A009457EB /* InfoPlist.strings in Resources */,
-				3FA06A8C19B376AA009DE2F5 /* 120x120.png in Resources */,
 				3FA05F3019A7CE2300B2F780 /* Images.xcassets in Resources */,
 				3FB2C57219A78275003AD0A3 /* Xcode.png in Resources */,
 				3FA05F3519A7D13400B2F780 /* 40.png in Resources */,
 				21FF2B03199E4910006D7550 /* Main.storyboard in Resources */,
 				3FDF3FEF19B8D654004D0B74 /* qr.png in Resources */,
 				211636BC199E5CE400C15DF7 /* Contacts.storyboard in Resources */,
-				3FA06A8B19B376AA009DE2F5 /* 80x80.png in Resources */,
 				3FB2C57819A783B8003AD0A3 /* email.png in Resources */,
 				3FD1D6EA19A8A96100701510 /* retina_wood.png in Resources */,
 				3FA05F3419A7D13400B2F780 /* 29.png in Resources */,
