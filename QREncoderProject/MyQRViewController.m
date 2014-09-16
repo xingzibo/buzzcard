@@ -17,7 +17,7 @@
 
 @implementation MyQRViewController
 
-@synthesize MyQR,window,qrStat,buffer,timer,recievedContact;
+@synthesize MyQR,window,qrStat,buffer,timer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -103,8 +103,24 @@
         if(!error)
         {
             
-            NSLog(@"the contact is %@",object[@"contact_data"]);
-             [self.timer invalidate];
+            NSLog(@"the new contact is %@",object[@"contact_data"]);
+            
+            
+            [self.timer invalidate];
+            
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            
+            NSString *recievedContact = object[@"contact_data"];
+            
+            // saving an NSString
+            [prefs setObject:recievedContact forKey:@"Contact"];
+            
+            
+            UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController *tvc = [st instantiateViewControllerWithIdentifier:@"ContactDetails"];
+            [self presentViewController:tvc animated:YES completion:nil];
+            
+            
         }
         else
         {
@@ -119,7 +135,7 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     // getting an NSString
-    NSString *newContact = [prefs stringForKey:@"RecCont"];
+    NSString *newContact = [prefs stringForKey:@"Contact"];
     
     NSLog(@"New Contact is %@",newContact);
     

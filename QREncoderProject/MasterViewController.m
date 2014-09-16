@@ -12,6 +12,8 @@
 
 #import "ContactDetailViewController.h"
 
+#import <Parse/Parse.h>
+
 @interface MasterViewController () {
     NSMutableArray *_objects;
     
@@ -89,6 +91,39 @@
 {
     [super viewDidLoad];
     
+    
+    //// check this..
+    
+    
+    NSUserDefaults *prefsCont = [NSUserDefaults standardUserDefaults];
+    
+    // getting an NSString
+    NSString *myContactNumber = [prefsCont stringForKey:@"MyContactNumber"];
+    
+    
+    //delete query after recieving the contact
+    
+    PFQuery *query1= [PFQuery queryWithClassName:@"ContactExchange"];
+    [query1 whereKey:@"contact_sendTo" equalTo:myContactNumber];
+    [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if(!error)
+        {
+            for (PFObject *object in objects) {
+                [object deleteInBackground];
+            }
+        }
+        else
+        {
+            NSLog(@"error while deleting is %@",[error userInfo]);
+        }
+    }];
+    
+    
+    ////
+    
+    
+    
     ContactDetailViewController *cd = [[ContactDetailViewController alloc] init];
     [cd findContact];
     
@@ -111,11 +146,6 @@
     convertedContactArray = [contactArray copy];
    // NSLog(@"The converted contact array is %@",convertedContactArray);
     
-    //// to conver
-    
-    NSMutableArray *sortArray = [convertedContactArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    
-    ////
     
     myTableView.backgroundView =
     [[UIImageView alloc]initWithImage:

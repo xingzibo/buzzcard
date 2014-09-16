@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) NSTimer *timer;
 
-@property (strong, nonatomic) NSString *recievedContact;
+//@property (strong, nonatomic) NSString *recievedContact;
 
 
 -(IBAction)saveQR;

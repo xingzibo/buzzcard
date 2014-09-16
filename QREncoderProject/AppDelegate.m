@@ -62,6 +62,15 @@
      UIViewController *mainViewController = [mainstoryBoard instantiateInitialViewController];
      self.window.rootViewController = mainViewController;
      [self.window makeKeyAndVisible];
+            
+            //n/w status check
+            
+            NSUserDefaults *nwStat = [NSUserDefaults standardUserDefaults];
+            
+            [nwStat setBool:YES forKey:@"NetworkStatus"];
+
+            
+            //
      
      
      return YES;

@@ -52,6 +52,7 @@
     button.frame = CGRectMake(80.0, 340.0, 160.0, 40.0);
     button.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:22];
     [self.view addSubview:button];
+   
 }
 
 -(void) playAction
@@ -59,12 +60,13 @@
  
   
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        
+    
+   /*
         UIStoryboard *mainstoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *mainViewController = [mainstoryBoard instantiateInitialViewController];
         self.window.rootViewController = mainViewController;
         [self.window makeKeyAndVisible];
-    
+    */
     
 }
 
@@ -185,11 +187,15 @@
             
             // saving an NSString
             [prefs setObject:_decodedMessage.text forKey:@"Contact"];
+            
+            // [self.view removeFromSuperview];
            
             
             UIStoryboard *st = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UIViewController *tvc = [st instantiateViewControllerWithIdentifier:@"ContactDetails"];
             [self presentViewController:tvc animated:YES completion:nil];
+            
+            
             
            /* if(![_decodedMessage.text isEqualToString:@""])
             {

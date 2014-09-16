@@ -119,6 +119,12 @@
     [self.window makeKeyAndVisible];
 }
 
+-(void) didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -195,6 +201,8 @@
 
     //
     
+    
+    
     //sending contact from here
     
     contact = [PFObject objectWithClassName:@"ContactExchange"];
@@ -204,10 +212,15 @@
     // getting an NSString
     NSString *myCont = [prefs11 stringForKey:@"MyContactNumber"];
     
-    //parse
+    
+     NSUserDefaults *nwStat = [NSUserDefaults standardUserDefaults];
+    
+    bool networkCheck =  [nwStat boolForKey:@"NetworkStatus"];
+    
+    //network status check and qr existence check
+
+    if(myCont && networkCheck)
     {
-        
-        //contact = [PFObject objectWithClassName:@"ContactRepo"];
         contact[@"contact_data"]=contactToAttach;
         contact[@"contact_sendTo"]=myCont;
         [contact saveInBackground ];
@@ -427,25 +440,6 @@
 
 -(void) saveContact
 {
-    //sending contact from here
-    /*
-    contact = [PFObject objectWithClassName:@"ContactExchange"];
-    
-    NSUserDefaults *prefs11 = [NSUserDefaults standardUserDefaults];
-    
-    // getting an NSString
-    NSString *myCont = [prefs11 stringForKey:@"MyContactNumber"];
-
-    //parse
-    {
-        
-        //contact = [PFObject objectWithClassName:@"ContactRepo"];
-        contact[@"contact_data"]=contactToAttach;
-        contact[@"contact_sendTo"]=myCont;
-        [contact saveInBackground ];
-    }
-    */
-    //
     
     
     //fn mod
@@ -539,6 +533,8 @@
     
     //
     [self findContact];
+
+    
 }
 
 -(void) findContact
@@ -624,12 +620,6 @@
     }
     sqlite3_reset(selectStatement);
     sqlite3_clear_bindings(selectStatement);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void) getContactDetails
